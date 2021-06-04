@@ -22,7 +22,6 @@ bot.onText(/\/start/, (msg) => {
 });
 
 // input i and r
-state = 0;
 bot.onText(/\/predict/, (msg) => { 
     bot.sendMessage(
         msg.chat.id,
@@ -55,10 +54,15 @@ bot.on('message', (msg) => {
                        msg.chat.id,
                        `Klasifikasi Tegangan ${jres2}` 
             );
+            state = 0
           })
         })
      }else{
-         state = 0
+        bot.sendMessage(
+        msg.chat.id,
+          `Please click /start`
+        );
+        state = 0;
      }
 })
     
