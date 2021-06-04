@@ -34,12 +34,10 @@ bot.onText(/\/predict/, (msg) => {
 bot.on('message', (msg) => { 
     if(state == 1){
         s = msg.text.split("|");
-        i = parseFloat(s[0])
-        r = parseFloat(s[1])
         model.predict(
             [
-                i,
-                r
+               parseFloat(s[0]),
+               parseFloat(s[1])
             ]
          ).then((jres1)=>{
            console.log(jres1);
