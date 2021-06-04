@@ -82,14 +82,14 @@ r.get('/prediction/:i/:r', function(req, res, next) {
 r.get('/classify/:i/:r', function(req, res, next) {    
     model.predict(
         [
-            parseFloat(req.params.parseFloat(s[0])), // string to float
-            parseFloat(req.params.parseFloat(s[1]))
+            parseFloat(req.params.i), // string to float
+            parseFloat(req.params.r)
         ]
     ).then((jres)=>{
         cls_model.classify(
             [
-                parseFloat(req.params.parseFloat(s[0])),
-                parseFloat(req.params.parseFloat(s[1])),
+                parseFloat(req.params.i),
+                parseFloat(req.params.r),
                 parseFloat(jres[0]),
                 parseFloat(jres[1])
             ]             
